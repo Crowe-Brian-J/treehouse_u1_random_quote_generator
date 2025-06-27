@@ -1,3 +1,7 @@
+//pick quote from quotes.js
+const quotePick = () => {}
+
+//generate quote html
 const quoteGen = () => {
   //stub for import quotes
   let quote = 'This is a quote.'
@@ -16,6 +20,9 @@ const quoteGen = () => {
 
   return strQuote
 }
+
+//pick new quote on button click (?)
+const clickButton = () => {}
 
 const main = document.querySelector('main')
 
