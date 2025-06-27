@@ -1,8 +1,12 @@
 //pick quote from quotes.js
-const quotePick = () => {}
+const quotePick = () => {
+  return (indQuote = quotes[Math.floor(Math.random() * quotes.length)])
+}
+
+console.log(quotePick())
 
 //generate quote html
-const quoteGen = () => {
+const quoteGen = (quotePick) => {
   //stub for import quotes
   let quote = 'This is a quote.'
   let source = 'Brian Crowe'
