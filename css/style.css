@@ -36,28 +36,10 @@ h2 {
 }
 
 main p {
-  font-size: 1.9em;
+  font-size: 1em;
   margin: 0;
   line-height: 1.5;
   text-align: center;
-}
-
-ul,
-ol {
-  list-style-position: inside;
-  font-size: 1.5em;
-  margin: 0;
-  padding: 0;  
-}
-
-li {
-  line-height: 1.25;
-  margin: 0 0 1.1em;
-  color: #42b4d6; 
-  padding: 0.8em;
-  background-color: white;
-  border-radius: 3px;
-  box-shadow: 0 2px 0 rgba(0,0,0, 0.1);
 }
 
 .card {
@@ -68,6 +50,7 @@ li {
   box-shadow: 0 2px 0 rgba(0, 0, 0, 0.2);
   margin: 5px;
 }
+
 button {
   text-align: center;
   color: rgb(41, 91, 105);
@@ -79,6 +62,7 @@ button {
   display: block;
   margin: 0 auto;
 }
+
 button:hover {
   color: antiquewhite;
   background-color: rgb(41, 91, 105);
