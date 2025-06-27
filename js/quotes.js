@@ -10,5 +10,20 @@ const quotes = [
     source: 'Michael Scott',
     citation: "The Office, Season 5, Episode 23: 'Michael Scott Paper Company'",
     year: 2009
+  },
+  {
+    quote: '',
+    source: '',
+    citation: '',
+    year: 2025
   }
 ]
+
+/*
+  {
+    quote: '',
+    source: '',
+    citation: '',
+    year: 2025
+  }
+*/
