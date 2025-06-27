@@ -6,7 +6,7 @@ const quoteGen = () => {
   //let year = 2025
 
   //string for display on page
-  const strQuote = `${quote} -${source}}`
+  const strQuote = `<h1>${quote}</h1> <h3>-${source}</h3>`
 
   return strQuote
 }
