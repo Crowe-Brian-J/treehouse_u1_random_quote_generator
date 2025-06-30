@@ -1,29 +1,36 @@
-const quotes = [
-  {
-    quote: "You miss 100% of the shots you don't take.",
-    source: 'Wayne Gretzky',
-    citation: "Hockey News, 'Bob McKenzie's Interview with Wayne Gretzky'",
-    year: 1983
-  },
-  {
-    quote: "'You miss 100% of the shots you don't take.' -Wayne Gretzky",
-    source: 'Michael Scott',
-    citation: "The Office, Season 5, Episode 23: 'Michael Scott Paper Company'",
-    year: 2009
-  },
-  {
-    quote: '',
-    source: '',
-    citation: '',
-    year: 2025
+//generate quote html
+const printQuote = () => {
+  const pickedQuote = getRandomQuote()
+
+  let quote = pickedQuote.quote
+  let source = pickedQuote.source
+  let citation = pickedQuote.citation
+  let year = pickedQuote.year
+
+  let strQuote = ''
+
+  if (citation !== '') {
+    strQuote += `<div><i>${citation}</i> ${year}<div>`
   }
-]
+
+  //string for display on page
+  strQuote = `<div class="card"><h1>"${quote}"</h1> <h2>-${source}</h2> <h3 class="citation">${citation}</h3> </div>`
+
+  return strQuote
+}
+
+//pick new quote on button click (?)
+const clickButton = () => {}
+
+const main = document.querySelector('main')
+
+main.innerHTML = printQuote()
 
 /*
   {
-    quote: '',
-    source: '',
-    citation: '',
+    quote: "",
+    source: "",
+    citation: "",
     year: 2025
   }
 */
