@@ -44,37 +44,45 @@ const getRandomQuote = () => {
   return quotes[Math.floor(Math.random() * quotes.length)]
 }
 
+//generate quote html
 const printQuote = () => {
   const pickedQuote = getRandomQuote()
 
+  //store quotes in easier format for reading in function
   let quote = pickedQuote.quote
   let source = pickedQuote.source
   let citation = pickedQuote.citation
   let year = pickedQuote.year
 
-  let strQuote = ''
+  //establish quote string, broken for line readability
+  // -- remember to close 2 divs at end
+  let strQuote = `<div class ="container"><div id="quote-box" class="quote-box">`
 
+  //main quote portion
+  strQuote += `<p class="quote">${quote}</p>`
+
+  //source -- conditionals for source/year/end p tag after
+  strQuote += `<p class ="source">${source}`
+
+  //if citation
   if (citation !== '') {
-    strQuote += `<div><i>${citation}</i> ${year}<div>`
-  }
-  if (year !== '') {
-    strQuote += ``
+    strQuote += `<span class="citation">${citation}</span>`
   }
 
-  /* --This is the format it needs to be in
-<div class="container">
-  <div id="quote-box" class="quote-box">
-    <p class="quote">Every great developer you know got there by solving problems they were unqualified to solve until they actually did it.</p>
-    <p class="source">Patrick McKenzie<span class="citation">Twitter</span><span class="year">2016</span></p>
-  </div>
-</div>
-*/
+  //if year
+  if (year !== 0) {
+    strQuote += `<span class="year">${year}</span>`
+  }
 
-  //string for display on page
-  strQuote = `<div class="card"><h1>"${quote}"</h1> <h2>-${source}</h2> <h3 class="citation">${citation}</h3> </div>`
+  //close p and 2 div tags
+  strQuote += `</p></div></div>`
 
   return strQuote
 }
+
+//load script in <main>
+const main = document.querySelector('main')
+main.innerHTML = printQuote()
 
 /***
  * click event listener for the print quote button
