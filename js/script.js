@@ -39,14 +39,26 @@ const quotes = [
   }
 ]
 
+//random background color on load
+function randomBackgroundColor() {
+  const randNum = () => Math.floor(Math.random() * 256)
+  const r = randNum()
+  const g = randNum()
+  const b = randNum()
+  document.body.style.backgroundColor = `rgb(${r},${g}, ${b})`
+}
+
 //pick quote from quotes array
 const getRandomQuote = () => {
   return quotes[Math.floor(Math.random() * quotes.length)]
 }
 
 //generate quote html
-const printQuote = () => {
+function printQuote() {
   const pickedQuote = getRandomQuote()
+  //load script in quote-box
+  //had to switch .querySelector for getElementById because quote-box is the div's id not a main element
+  const quoteBox = document.getElementById('quote-box')
 
   //store quotes in easier format for reading in function
   let quote = pickedQuote.quote
@@ -77,29 +89,14 @@ const printQuote = () => {
   //close p and 2 div tags
   strQuote += `</p></div></div>`
 
-  return strQuote
+  randomBackgroundColor()
+
+  //call page changes
+  quoteBox.innerHTML = strQuote
 }
-
-//random background color on load
-const randomBackgroundColor = () => {
-  const randNum = () => Math.floor(Math.random() * 256)
-  const r = randNum()
-  const g = randNum()
-  const b = randNum()
-  document.body.style.backgroundColor = `rgb(${r},)${g}, ${b}`
-}
-
-//load script in quote-box
-//had to switch .querySelector for getElementById because quote-box is the div's id not a main element
-const quoteBox = document.getElementById('quote-box')
-
-//call page changes
-quoteBox.innerHTML = printQuote()
-
-//need to cal somewhere else - not switching on reload
-randomBackgroundColor()
 
 //code to refresh page after so many seconds
+setInterval(printQuote, 20000)
 
 /***
  * click event listener for the print quote button
