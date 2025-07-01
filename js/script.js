@@ -29,16 +29,18 @@ const quotes = [
   },
   {
     quote:
-      "Interesting. It's just that the average person has a much harder time saying, 'booyah,' to moral relativism.",
-    source: 'Prof. Ian Duncan',
-    citation: "Community, Season 1, Episode 1: 'Pilot'",
-    year: 2009
+      "You can yell at me all you want! I've seen enough movies to know that popping the back of a raft makes it go faster!",
+    source: 'Troy Barnes',
+    citation: "Community, Season 2, Episode 21: 'Paradigms of Human Memory'",
+    year: 2011,
+    tags: 'sitcom'
   },
   {
-    quote: '',
-    source: '',
-    citation: '',
-    year: 2025
+    quote:
+      "If I had to, I could clean out my desk in five seconds, and nobody would ever know that I'd ever been here. And I'd forget too",
+    source: 'Ryan Howard',
+    citation: 'The Office, Season 2, Episode 13: The Secret',
+    year: 2006
   }
 ]
 
@@ -48,7 +50,7 @@ function randomBackgroundColor() {
   const r = randNum()
   const g = randNum()
   const b = randNum()
-  document.body.style.backgroundColor = `rgb(${r},${g}, ${b})`
+  return `rgb(${r},${g}, ${b})`
 }
 
 //pick quote from quotes array
@@ -90,7 +92,7 @@ function printQuote() {
     strQuote += `<span class="year">${year}</span>`
   }
 
-  //if tags
+  //if tags - done this way because defining it above automatically made tags have a value, even undefined
   if (pickedQuote.tags) {
     strQuote += `<p class="tags">Tags: ${pickedQuote.tags}</p>`
   }
@@ -98,14 +100,15 @@ function printQuote() {
   //close p and 2 div tags
   strQuote += `</p></div></div>`
 
-  randomBackgroundColor()
+  //call random background color on refresh
+  document.body.style.backgroundColor = randomBackgroundColor()
 
   //call page changes
   quoteBox.innerHTML = strQuote
 }
 
 //code to refresh page after so many seconds
-setInterval(printQuote, 20000)
+setInterval(printQuote, 12000)
 
 /***
  * click event listener for the print quote button
