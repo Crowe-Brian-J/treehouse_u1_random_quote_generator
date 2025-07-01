@@ -12,6 +12,9 @@ const printQuote = () => {
   if (citation !== '') {
     strQuote += `<div><i>${citation}</i> ${year}<div>`
   }
+  if (year !== '') {
+    strQuote += ``
+  }
 
   //string for display on page
   strQuote = `<div class="card"><h1>"${quote}"</h1> <h2>-${source}</h2> <h3 class="citation">${citation}</h3> </div>`
