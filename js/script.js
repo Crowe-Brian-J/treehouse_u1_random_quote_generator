@@ -9,20 +9,23 @@ const quotes = [
     quote: "You miss 100% of the shots you don't take.",
     source: 'Wayne Gretzky',
     citation: "Hockey News, 'Bob McKenzie's Interview with Wayne Gretzky'",
-    year: 1983
+    year: 1983,
+    tags: 'sports'
   },
   {
     quote: "'You miss 100% of the shots you don't take.' -Wayne Gretzky",
     source: 'Michael Scott',
     citation: "The Office, Season 5, Episode 23: 'Michael Scott Paper Company'",
-    year: 2009
+    year: 2009,
+    tags: 'sitcom'
   },
   {
     quote:
       "I discovered, at a very early age, that if I talk long enough, I can make anything right or wrong. So either I'm God or truth is relative. In either case, booyah!",
     source: 'Jeff Winger',
     citation: "Community, Season 1, Episode 1: 'Pilot'",
-    year: 2009
+    year: 2009,
+    tags: 'sitcom'
   },
   {
     quote:
@@ -56,6 +59,7 @@ const getRandomQuote = () => {
 //generate quote html
 function printQuote() {
   const pickedQuote = getRandomQuote()
+
   //load script in quote-box
   //had to switch .querySelector for getElementById because quote-box is the div's id not a main element
   const quoteBox = document.getElementById('quote-box')
@@ -84,6 +88,11 @@ function printQuote() {
   //if year
   if (year !== 0) {
     strQuote += `<span class="year">${year}</span>`
+  }
+
+  //if tags
+  if (pickedQuote.tags) {
+    strQuote += `<p class="tags">Tags: ${pickedQuote.tags}</p>`
   }
 
   //close p and 2 div tags
