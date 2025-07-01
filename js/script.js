@@ -80,9 +80,26 @@ const printQuote = () => {
   return strQuote
 }
 
-//load script in <main>
-const main = document.querySelector('main')
-main.innerHTML = printQuote()
+//random background color on load
+const randomBackgroundColor = () => {
+  const randNum = () => Math.floor(Math.random() * 256)
+  const r = randNum()
+  const g = randNum()
+  const b = randNum()
+  document.body.style.backgroundColor = `rgb(${r},)${g}, ${b}`
+}
+
+//load script in quote-box
+//had to switch .querySelector for getElementById because quote-box is the div's id not a main element
+const quoteBox = document.getElementById('quote-box')
+
+//call page changes
+quoteBox.innerHTML = printQuote()
+
+//need to cal somewhere else - not switching on reload
+randomBackgroundColor()
+
+//code to refresh page after so many seconds
 
 /***
  * click event listener for the print quote button
