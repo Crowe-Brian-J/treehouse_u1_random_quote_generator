@@ -37,14 +37,13 @@ const quotes = [
   },
   {
     quote:
-      "If I had to, I could clean out my desk in five seconds, and nobody would ever know that I'd ever been here. And I'd forget too",
+      "If I had to, I could clean out my desk in five seconds, and nobody would ever know that I'd ever been here. And I'd forget too.",
     source: 'Ryan Howard',
-    citation: 'The Office, Season 2, Episode 13: The Secret',
-    year: 2006
+    citation: "The Office, Season 2, Episode 13: 'The Secret'"
   }
 ]
 
-//random background color on load
+//random background color on load - edited from arrow function - need to read more about 'this' property
 function randomBackgroundColor() {
   const randNum = () => Math.floor(Math.random() * 256)
   const r = randNum()
@@ -58,7 +57,7 @@ const getRandomQuote = () => {
   return quotes[Math.floor(Math.random() * quotes.length)]
 }
 
-//generate quote html
+//generate quote html - edited from arrow function - need to read more about 'this' property
 function printQuote() {
   const pickedQuote = getRandomQuote()
 
@@ -70,7 +69,6 @@ function printQuote() {
   let quote = pickedQuote.quote
   let source = pickedQuote.source
   let citation = pickedQuote.citation
-  let year = pickedQuote.year
 
   //establish quote string, broken for line readability
   // -- remember to close 2 divs at end
@@ -79,17 +77,17 @@ function printQuote() {
   //main quote portion
   strQuote += `<p class="quote">${quote}</p>`
 
-  //source -- conditionals for source/year/end p tag after
+  //source - conditionals for citation/year/end p tag after
   strQuote += `<p class ="source">${source}`
 
   //if citation
-  if (citation !== '') {
+  if (pickedQuote.citation) {
     strQuote += `<span class="citation">${citation}</span>`
   }
 
   //if year
-  if (year !== 0) {
-    strQuote += `<span class="year">${year}</span>`
+  if (pickedQuote.year) {
+    strQuote += `<span class="year">${pickedQuote.year}</span>`
   }
 
   //if tags - done this way because defining it above automatically made tags have a value, even undefined
@@ -107,7 +105,7 @@ function printQuote() {
   quoteBox.innerHTML = strQuote
 }
 
-//code to refresh page after so many seconds
+//code to refresh page after 12 seconds
 setInterval(printQuote, 12000)
 
 /***
