@@ -44,7 +44,7 @@ const quotes = [
 ]
 
 //random background color on load - edited from arrow function - need to read more about 'this' property
-function randomBackgroundColor() {
+const randomBackgroundColor = () => {
   const randNum = () => Math.floor(Math.random() * 256)
   const r = randNum()
   const g = randNum()
@@ -58,7 +58,7 @@ const getRandomQuote = () => {
 }
 
 //generate quote html - edited from arrow function - need to read more about 'this' property
-function printQuote() {
+const printQuote = () => {
   const pickedQuote = getRandomQuote()
 
   //load script in quote-box
